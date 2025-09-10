@@ -66,21 +66,14 @@ function Home() {
         []
     );
 
-    // Debounce effect - only run when search actually changes from user input
+    // Debounce effect - run for both search and empty search
     useEffect(() => {
-        if (search === "") return; // Don't search when empty
-
         const timeoutId = setTimeout(() => {
             debouncedSearch(search);
         }, 300);
 
         return () => clearTimeout(timeoutId);
     }, [search, debouncedSearch]);
-
-    // Filter movies based on search
-    const filteredMovies = movies.filter(movie =>
-        movie.title.toLowerCase().includes(search.toLowerCase())
-    );
 
     return (
         <div className="home">
@@ -100,7 +93,7 @@ function Home() {
                 <div className="loading">Loading...</div>
             ) : (
                 <div className="movies-grid">
-                    {filteredMovies.map((movie) => (
+                    {movies.map((movie) => (
                         <MovieCard movie={movie} key={movie.id} />
                     ))}
                 </div>

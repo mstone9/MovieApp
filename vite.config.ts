@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/MovieApp/',
   build: {
-    outDir: 'build',
+    outDir: 'dist',
   }
 })
