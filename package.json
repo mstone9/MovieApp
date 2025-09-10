@@ -1,7 +1,7 @@
 {
   "name": "movieapp",
-  "homepage": "https://mstone9.github.io/MovieApp/",
-  "private": true,
+  "homepage": "https://mstone9.github.io/MovieApp",
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
