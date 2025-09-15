@@ -10,26 +10,6 @@ function Home() {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
 
-    // Load popular movies on mount
-    useEffect(() => {
-        const loadPopularMovies = async () => {
-            try{
-                const popularMovies = await getPopularMovies()
-                setMovies(popularMovies)
-                setError(null);
-            } catch (err) {
-                console.error("Failed to Load Movies:", err);
-                const errorMessage = err instanceof Error ? err.message : "Failed to Load Movies";
-                setError(errorMessage);
-            }
-            finally{
-                setLoading(false);
-            }
-        }
-
-        loadPopularMovies();
-    }, [])
-
     // Debounced search function
     const debouncedSearch = useCallback(
         async (searchTerm: string) => {
